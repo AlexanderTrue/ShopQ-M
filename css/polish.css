@@ -1,0 +1,129 @@
+/* ============================================================
+   Q.&.M — polish layer (лёгкий редизайн, минимум правок)
+   Ледяной мятный фон, скругления, глубина, живой акцент
+   ============================================================ */
+
+:root {
+	--m-bg: #f6fbfa;
+	--m-accent: #5cc2b1;
+	--m-accent-2: #58d4ce;
+	--m-dark: #262f56;
+	--m-radius: 18px;
+}
+
+/* ---------- фон: ледяной мятный вместо чисто белого ---------- */
+body,
+.wrapper {
+	background-color: var(--m-bg);
+}
+
+body {
+	background-image:
+		radial-gradient(900px 520px at 8% -6%, rgba(92, 194, 177, 0.09), transparent 60%),
+		radial-gradient(820px 500px at 96% 12%, rgba(88, 212, 206, 0.07), transparent 55%);
+	background-attachment: fixed;
+}
+
+/* ---------- карточки товаров ---------- */
+.item-product {
+	border-radius: var(--m-radius);
+	overflow: hidden;
+	transition: transform 0.3s ease 0s, box-shadow 0.3s ease 0s;
+}
+
+.item-product:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 24px 44px -20px rgba(38, 47, 86, 0.38);
+}
+
+.item-product__label {
+	border-radius: 20px;
+}
+
+/* тёмный hover-оверлей «Add to cart» — мягче и с акцентом кнопке */
+.item-product__actions {
+	background: rgba(38, 47, 86, 0.68) !important;
+}
+
+.action-product__button.button_white {
+	border-radius: 12px;
+}
+
+/* ---------- скругления картинок ---------- */
+.slider-tips-ibg {
+	border-radius: 16px;
+	overflow: hidden;
+}
+
+.slider-tips-ibg img {
+	transition: transform 0.7s cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+
+@media (any-hover: hover) {
+	.slider-tips__slide:hover .slider-tips-ibg img {
+		transform: scale(1.05);
+	}
+}
+
+/* галерея «#Show yourself with Q.&.M» */
+.row-furniture__item {
+	border-radius: 14px;
+	overflow: hidden;
+}
+
+.row-furniture__item img {
+	transition: transform 0.7s cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+
+@media (any-hover: hover) {
+	.row-furniture__item:hover img {
+		transform: scale(1.06);
+	}
+}
+
+/* иконки преимуществ */
+.advantages__icon {
+	border-radius: 14px;
+}
+
+/* ---------- кнопки: скругления + живой hover ---------- */
+.button,
+.button_white {
+	border-radius: 12px;
+	transition: all 0.3s ease 0s, transform 0.25s ease 0s, box-shadow 0.25s ease 0s;
+}
+
+@media (any-hover: hover) {
+
+	.button:hover,
+	.button_white:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 16px 30px -12px rgba(92, 194, 177, 0.6);
+	}
+}
+
+/* ---------- формы: скругления, фокус ---------- */
+.input {
+	border-radius: 12px !important;
+	transition: border-color 0.3s ease 0s, box-shadow 0.3s ease 0s;
+}
+
+.serch-form__input {
+	border-radius: 24px !important;
+}
+
+.input:focus {
+	border-color: var(--m-accent);
+	box-shadow: 0 0 0 4px rgba(92, 194, 177, 0.18);
+	outline: none;
+}
+
+/* ---------- мелочи ---------- */
+::selection {
+	background: rgba(92, 194, 177, 0.85);
+	color: #fff;
+}
+
+html {
+	scroll-behavior: smooth;
+}
